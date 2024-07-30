@@ -191,3 +191,102 @@ NOTE TO DEVELOPERS: welcome to Focal theme! We hope that you will enjoy editing 
     <!-- **END** Hextom USB Integration // Main Include - DO NOT MODIFY -->
 </body>
 </html>
+
+
+
+          <!--------------- Start of Sticky Add to Cart Code --------------->
+
+  {% if template contains 'product' %}
+     <div id="sticky-section2">
+      <div class="sticky_bn">
+              <button id="bnbtn-sticky-cart" class="bnbtn">Add to Cart </button> 
+    </div>
+      </div>
+      <style>
+        .sticky_bn{
+            	position: fixed;
+                z-index: 100;
+            	width: 100%;
+            	left:0;
+            	bottom:0%;
+            	min-height: 70px;
+                padding: 0px 20px;
+            	background: #f3f3f3;    
+            	box-shadow: 0px 2px 10px #27272780;
+                -webkit-box-shadow: 0px 2px 10px #27272780;
+                transition: 0.6s;
+                -moz-box-shadow: 0px 2px 10px #27272780;
+                }
+
+            #bnbtn-sticky-cart {
+                background-color: #E0125F;
+                color: #fff;
+                padding: 10px 25px;
+                border: 2px solid black;
+                cursor: pointer;
+                font-weight: 700;
+                border-radius:6px;
+                }
+
+              #bnbtn-sticky-cart:hover {
+            	background-color: #E0125F;
+                color: #fff;
+                }
+
+            .sticky_bn.show{
+            	bottom:0;
+            	transition: 0.6s;
+                }
+            #sticky-section2{
+                display: none;
+                }
+            @media only screen and (max-width:767px)
+                {
+                #bnbtn-sticky-cart {
+                margin-top: 12px;
+                width: 100%;
+                height: 45px;
+                }}
+        @media only screen and (min-width:767px)
+                {
+                #sticky-section2 {
+                display:none!important;
+                }}
+      </style>
+     <script>
+      // Get the container element
+      const stickySection = document.getElementById("sticky-section2");
+    
+      // Listen for the scroll event
+      window.addEventListener("scroll", function() {
+        // Get the total height of the page
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+    
+        // Check if the scroll position is greater than 30% of the total height
+        if (window.pageYOffset > (totalHeight * 0.1)) {
+          stickySection.style.display = "block";
+        } else {
+          stickySection.style.display = "none";
+        }
+      });
+      // Get the element with the ID "btn-sticky-cart"
+      const btnStickyCart = document.getElementById('bnbtn-sticky-cart');
+      
+      // Check if the element exists before adding the event listener
+      if (btnStickyCart) {
+        btnStickyCart.addEventListener('click', () => {
+          // Get all elements with the class "product-form__submit "
+          const addToCartButtons = document.querySelectorAll('.product-form__submit ');
+      
+          // Loop through each add to cart button and simulate a click
+          addToCartButtons.forEach(button => {
+            button.click();
+          });
+        });
+      }
+    </script>
+    {% endif %}
+
+
+
+ <!--------------- Start of Sticky Add to Cart Code --------------->
